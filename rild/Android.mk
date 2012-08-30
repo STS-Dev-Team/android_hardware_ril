@@ -9,8 +9,11 @@ LOCAL_SRC_FILES:= \
 
 LOCAL_SHARED_LIBRARIES := \
 	libcutils \
-	libril \
-	libdl
+	libril
+
+ifeq ($(TARGET_ARCH),arm)
+LOCAL_SHARED_LIBRARIES += libdl
+endif # arm
 
 LOCAL_CFLAGS := -DRIL_SHLIB
 
